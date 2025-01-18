@@ -8,7 +8,7 @@
         {
             var cacheBasket = await cache.GetStringAsync(userName, cancellationToken);
             if(!string.IsNullOrEmpty(cacheBasket))
-                JsonSerializer.Deserialize<ShoppingCart>(cacheBasket);
+                return JsonSerializer.Deserialize<ShoppingCart>(cacheBasket)!;
 
             var basket = await repository.GetBasket(userName, cancellationToken);
             await cache.SetStringAsync(userName, JsonSerializer.Serialize(basket), cancellationToken);
