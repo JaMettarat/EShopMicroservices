@@ -14,7 +14,7 @@ service DiscountProtoService{
 }
 
 message GetDiscountRequest{
-	string ProductName = 1;
+	string productName = 1;
 }
 
 
@@ -38,5 +38,5 @@ message DeleteDiscountRequest{
 }
 
 message DeleteDiscountResponse{
-	bool Success = 1;
+	bool success = 1;
 }
