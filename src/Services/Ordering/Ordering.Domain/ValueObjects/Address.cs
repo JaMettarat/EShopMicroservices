@@ -2,7 +2,7 @@
 {
     public record Address
     {
-        public string FirestName { get; } = default!;
+        public string FirstName { get; } = default!;
         public string LastName { get; } = default!;
         public string? EmailAddress { get; } = default!;
         public string AddressLine { get; } = default!;
@@ -16,7 +16,7 @@
 
         private Address(string firestName, string lastName, string? emailAddress, string addressLine, string country, string state, string zipCode)
         {
-            FirestName = firestName;
+            FirstName = firestName;
             LastName = lastName;
             EmailAddress = emailAddress;
             AddressLine = addressLine;

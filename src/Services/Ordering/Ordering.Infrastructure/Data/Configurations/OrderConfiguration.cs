@@ -36,7 +36,7 @@ namespace Ordering.Infrastructure.Data.Configurations
             builder.ComplexProperty(
                o => o.ShippingAddress, addressBuilder =>
                {
-                   addressBuilder.Property(a => a.FirestName)
+                   addressBuilder.Property(a => a.FirstName)
                        .HasMaxLength(50)
                        .IsRequired();
 
@@ -65,7 +65,7 @@ namespace Ordering.Infrastructure.Data.Configurations
             builder.ComplexProperty(
               o => o.BillingAddress, addressBuilder =>
               {
-                  addressBuilder.Property(a => a.FirestName)
+                  addressBuilder.Property(a => a.FirstName)
                        .HasMaxLength(50)
                        .IsRequired();
 
