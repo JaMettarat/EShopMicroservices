@@ -1,5 +1,15 @@
 ﻿namespace Catalog.API.Products.CreateProduct;
 
+//public record CreateProductRequest
+//{
+//    public string Name { get; }
+//    public List<string> Category { get; }
+//    public string Description { get; }
+//    public string ImageFile { get; }
+//    public decimal Price { get; }
+//    public CreateProductRequest(string name, List<string> cate, string description, string imagefile, decimal price) => (Name, Category, Description, ImageFile, Price) = (name, cate, description, imagefile, price);
+//}
+
 public record CreateProductRequest(string Name, List<string> Category, string Description, string ImageFile, decimal Price);
 
 public record CreateProductResponse(Guid Id);

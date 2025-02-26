@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 var builder = WebApplication.CreateBuilder(args);
 
 //Add services to the container.
+
+//Application Services
 var assembly = typeof(Program).Assembly;
 builder.Services.AddMediatR(config =>
 {
@@ -16,6 +18,8 @@ builder.Services.AddMediatR(config =>
 
 builder.Services.AddCarter();
 
+
+//Data Services
 builder.Services.AddMarten(options =>
 {
     options.Connection(builder.Configuration.GetConnectionString("Database")!);
@@ -37,6 +41,8 @@ builder.Services.AddStackExchangeRedisCache(options =>
     //options.InstanceName = "Basket_";
 });
 
+
+//Grpc Serivces
 builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
 {
     options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]!);
@@ -52,7 +58,8 @@ builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(
         return handler;
     });
 
-//cross-cutting services
+
+//Cross-cutting services
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 builder.Services.AddHealthChecks()
